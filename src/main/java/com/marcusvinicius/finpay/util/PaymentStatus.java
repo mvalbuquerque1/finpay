@@ -1,5 +1,7 @@
 package com.marcusvinicius.finpay.util;
 
 public enum PaymentStatus {
-    PENDING;
+    PENDING,
+    FAILED,
+    CANCELLED;
 }

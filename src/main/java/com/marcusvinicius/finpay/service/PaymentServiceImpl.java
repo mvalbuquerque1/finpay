@@ -1,5 +1,7 @@
 package com.marcusvinicius.finpay.service;
 
+import com.marcusvinicius.finpay.dto.PaymentRequest;
+import com.marcusvinicius.finpay.dto.PaymentResponse;
 import com.marcusvinicius.finpay.util.PaymentStatus;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +11,9 @@ import java.util.UUID;
 public class PaymentServiceImpl implements PaymentService {
 
     @Override
-    public String doPayment() {
-        String status = PaymentStatus.PENDING.toString();
-        String paymentId = UUID.randomUUID().toString();
-        return status + "\n " + paymentId;
+    public PaymentResponse doPayment(PaymentRequest request) {
+        UUID paymentId = UUID.randomUUID();
+        PaymentStatus status = PaymentStatus.PENDING;
+        return new PaymentResponse(paymentId, status);
     }
 }
