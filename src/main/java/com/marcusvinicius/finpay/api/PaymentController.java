@@ -1,6 +1,7 @@
 package com.marcusvinicius.finpay.api;
 
 import com.marcusvinicius.finpay.dto.PaymentRequest;
+import com.marcusvinicius.finpay.service.PaymentService;
 import com.marcusvinicius.finpay.service.PaymentServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/payments")
 public class PaymentController {
 
-    private PaymentServiceImpl paymentService;
+    private PaymentService paymentService;
 
     public PaymentController(PaymentServiceImpl paymentService) {
         this.paymentService = paymentService;
