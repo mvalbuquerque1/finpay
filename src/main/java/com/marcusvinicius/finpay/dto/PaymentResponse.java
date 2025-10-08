@@ -1,9 +1,11 @@
 package com.marcusvinicius.finpay.dto;
 
 import com.marcusvinicius.finpay.util.PaymentStatus;
+import lombok.Getter;
 
 import java.util.UUID;
 
+@Getter
 public class PaymentResponse {
 
     public PaymentResponse(UUID paymentId, PaymentStatus status) {
