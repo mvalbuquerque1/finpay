@@ -12,7 +12,7 @@ public class Account {
 
     public Account(UUID userId, String name, AccountStatus status) {
         validate(userId, status);
-        this.userId = UUID.randomUUID();
+        this.userId = userId;
         this.name = name;
         this.status = status;
     }
@@ -21,7 +21,7 @@ public class Account {
         if (userId == null) {
             throw new IllegalArgumentException("Id must not be null");
         }
-        if (status.getDescription() == null || status.getDescription().isBlank()) {
+        if (status == null) {
             throw new IllegalArgumentException("Status must not be null");
         }
     }
