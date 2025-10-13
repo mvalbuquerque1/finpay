@@ -10,16 +10,19 @@ public class Wallet {
     private BigDecimal balance;
     private Currency currency;
 
-    public Wallet(BigDecimal balance) {
-        this.balance = BigDecimal.ZERO;
-    }
-
     public Wallet(BigDecimal initialBalance, Currency currency) {
         this.balance = initialBalance != null ? initialBalance : BigDecimal.ZERO;
         this.currency = currency;
     }
 
     public void credit(BigDecimal amount, Currency currency) {
+
+        if (amount == null) {
+            throw new IllegalArgumentException("Amount must not be null");
+        }
+        if (amount.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("Amount must not be negative");
+        }
         if (!this.currency.equals(currency)) {
             throw new IllegalArgumentException("Currency mismatch: expected " + this.currency + " but got " + currency);
         }
@@ -30,8 +33,11 @@ public class Wallet {
         if (!this.currency.equals(currency)) {
             throw new IllegalArgumentException("Currency mismatch: expected " + this.currency + " but got " + currency);
         }
-        if (amount.compareTo(balance) > 0) {
-            throw new InsufficientBalanceException("Amount bigger than balance");
+        if (amount == null) {
+            throw new IllegalArgumentException("Amount cannot be null");
+        }
+        if (amount.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("Amount cannot be negative");
         }
         balance = balance.subtract(amount);
     }
