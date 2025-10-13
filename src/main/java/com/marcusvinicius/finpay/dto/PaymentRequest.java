@@ -20,7 +20,7 @@ public class PaymentRequest {
     private UUID userId;
 
     @DecimalMin(value = "0.01", message = "Amount must be greater than zero")
-    private BigDecimal amount;
+    private String amount;
 
     @NotNull
     //TODO Create validation
