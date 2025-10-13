@@ -39,7 +39,9 @@ public class Wallet {
         if (amount.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("Amount cannot be negative");
         }
+        if (amount.compareTo(balance) > 0) {
+            throw new InsufficientBalanceException("Insufficient balance: attempted to debit " + amount + " but current balance is " + balance);
+        }
         balance = balance.subtract(amount);
-    }
 
 }
