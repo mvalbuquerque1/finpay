@@ -1,6 +1,6 @@
 package com.marcusvinicius.finpay.dto;
 
-import com.marcusvinicius.finpay.util.PaymentStatus;
+import com.marcusvinicius.finpay.util.enums.PaymentStatus;
 import lombok.Getter;
 
 import java.util.UUID;

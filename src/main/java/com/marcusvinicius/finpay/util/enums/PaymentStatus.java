@@ -1,4 +1,4 @@
-package com.marcusvinicius.finpay.util;
+package com.marcusvinicius.finpay.util.enums;
 
 public enum PaymentStatus {
     PENDING,

@@ -1,6 +1,6 @@
 package com.marcusvinicius.finpay.dto;
 
-import com.marcusvinicius.finpay.util.PaymentMethod;
+import com.marcusvinicius.finpay.util.enums.PaymentMethod;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
