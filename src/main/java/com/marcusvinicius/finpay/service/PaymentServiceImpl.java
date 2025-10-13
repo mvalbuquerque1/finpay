@@ -2,7 +2,7 @@ package com.marcusvinicius.finpay.service;
 
 import com.marcusvinicius.finpay.dto.PaymentRequest;
 import com.marcusvinicius.finpay.dto.PaymentResponse;
-import com.marcusvinicius.finpay.util.PaymentStatus;
+import com.marcusvinicius.finpay.util.enums.PaymentStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;

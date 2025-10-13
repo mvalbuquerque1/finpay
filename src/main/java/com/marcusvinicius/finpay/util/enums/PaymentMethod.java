@@ -1,4 +1,4 @@
-package com.marcusvinicius.finpay.util;
+package com.marcusvinicius.finpay.util.enums;
 
 //TODO Analisar melhor
 public enum PaymentMethod {
