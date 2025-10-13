@@ -43,6 +43,9 @@ public class Account {
     }
 
     public void setStatus(AccountStatus status) {
+        if (status == null) {
+            throw new IllegalArgumentException("Status must not be null");
+        }
         this.status = status;
     }
 }
