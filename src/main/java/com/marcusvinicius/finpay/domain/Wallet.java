@@ -34,10 +34,10 @@ public class Wallet {
             throw new IllegalArgumentException("Currency mismatch: expected " + this.currency + " but got " + currency);
         }
         if (amount == null) {
-            throw new IllegalArgumentException("Amount cannot be null");
+            throw new IllegalArgumentException("Amount must not be null");
         }
         if (amount.compareTo(BigDecimal.ZERO) < 0) {
-            throw new IllegalArgumentException("Amount cannot be negative");
+            throw new IllegalArgumentException("Amount must not be negative");
         }
         if (amount.compareTo(balance) > 0) {
             throw new InsufficientBalanceException("Insufficient balance: attempted to debit " + amount + " but current balance is " + balance);
