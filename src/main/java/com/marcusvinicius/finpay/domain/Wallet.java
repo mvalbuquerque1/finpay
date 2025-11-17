@@ -61,6 +61,7 @@ public class Wallet {
     public void debit(BigDecimal amount) throws InsufficientBalanceException {
         validateAmount(amount);
         if (balance.compareTo(amount) < 0) {
+            //TODO check if this is the best way to handle failed transactions
             Transaction tx = Transaction.failed(amount, currency);
             transactions.add(tx);
             throw new InsufficientBalanceException("Insufficient balance for debit operation");

@@ -46,7 +46,7 @@ public class Transaction {
     }
 
     public static Transaction failed(BigDecimal amount, Currency currency) {
-        return new Transaction(UUID.randomUUID(), amount, currency, TransactionStatus.SUCCESS);
+        return new Transaction(UUID.randomUUID(), amount, currency, TransactionStatus.FAILED);
     }
 
     public UUID getTransactionId() {
