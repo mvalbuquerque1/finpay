@@ -1,13 +1,11 @@
 package com.marcusvinicius.finpay.dto;
 
-import com.marcusvinicius.finpay.domain.Transaction;
 import com.marcusvinicius.finpay.util.enums.PaymentMethod;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 import java.math.BigDecimal;
-import java.util.Currency;
 import java.util.UUID;
 
 public record PaymentRequest(@NotNull UUID userId,
@@ -27,18 +25,5 @@ public record PaymentRequest(@NotNull UUID userId,
         if (paymentMethod == null) {
             throw new IllegalArgumentException("PaymentMethod must not be null");
         }
-    }
-
-    public Transaction toDomain() {
-        Currency domainCurrency = mapToCurrency(this.currency);
-        return Transaction.pending(this.amount, domainCurrency);
-    }
-
-    private Currency mapToCurrency(String symbol) {
-        return switch (symbol) {
-            case "R$" -> Currency.getInstance("BRL");
-            case "$" -> Currency.getInstance("USD");
-            default -> throw new IllegalArgumentException("Unsupported currency symbol: " + symbol);
-        };
     }
 }
