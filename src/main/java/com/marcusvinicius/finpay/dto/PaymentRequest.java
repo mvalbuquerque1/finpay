@@ -14,20 +14,7 @@ public record PaymentRequest(@NotNull UUID userId,
                              @NotNull @DecimalMin(value = "0.01", message = "Amount must be greater than zero") BigDecimal amount,
                              @NotNull @Pattern(regexp = "^(R\\$|\\$)$", message = "Currency must be R$ or $") String currency,
                              @NotNull PaymentMethod paymentMethod) {
-    public PaymentRequest {
-        if (userId == null) {
-            throw new IllegalArgumentException("UserId must not be null");
-        }
-        if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("Amount must be greater than zero");
-        }
-        if (currency == null || currency.isBlank()) {
-            throw new IllegalArgumentException("Currency must not be null or blank");
-        }
-        if (paymentMethod == null) {
-            throw new IllegalArgumentException("PaymentMethod must not be null");
-        }
-    }
+    // Compact constructor removed: validation is handled by Jakarta Bean Validation annotations.
 
     public Transaction toDomain() {
         Currency domainCurrency = mapToCurrency(this.currency);
